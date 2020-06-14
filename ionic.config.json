@@ -1,0 +1,7 @@
+{
+  "name": "kalia",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
