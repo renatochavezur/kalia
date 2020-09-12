@@ -1,0 +1,125 @@
+
+.no-scroll, .scroll-content{ overflow: hidden; }
+
+#login-container {
+  min-width: 320px;
+  max-width: 500px;
+  width: 90%;
+  border: 1px;
+  height: 500px;
+  margin: calc(50vh - 250px) auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.container-form {
+  background-color: rgb(255, 255, 255);
+  bottom: 30px;
+  left: 0;
+  right: 0;
+  padding: 0px 0px 20px;
+  border-radius: 9px;
+}
+
+.logo-kalia {
+  width: 200px;
+  margin: 0px auto 60px;
+}
+
+.form {
+  width: 90%;
+  margin: 0px auto;
+  background-color: #ffffff;
+}
+
+.input-label {
+  font-family: Ubuntu;
+  color: #3181f9;
+}
+
+.input-entry {
+  font-weight: 300;
+  font-family: Ubuntu;
+}
+
+.submit-button {
+  width: 100%;
+  margin-top: 50px;
+  letter-spacing: 1px;
+  color: white;
+  text-align: center;
+  font-weight: 700;
+  line-height: 19px;
+  font-size: 16px;
+  border: 1px solid #3181f9;
+  height: 43px;
+  border-radius: 4px;
+  border: 1px solid #b9c5d4;
+  background-color: #3181f9;
+}
+
+.google-button {
+  width: 90%;
+  margin: 5% 0px 0px 5%;
+  padding: 0 16px;
+  letter-spacing: 1px;
+  color: #3181f9;
+  text-align: center;
+  font-weight: 500;
+  line-height: 19px;
+  font-size: 16px;
+  border: 1px solid #3181f9;
+  height: 43px;
+  border-radius: 4px;
+  background-color: #fff;
+
+  & > div {
+    width: 250px;
+    display: flex;
+    align-items: center;
+    margin: auto;
+
+    img {
+      width: 25px;
+      height: 20px;
+      margin-right: 20px;
+    }
+  }
+}
+
+.facebook-button {
+  width: 90%;
+  margin: 5% 0px 0px 5%;
+  padding: 0 16px;
+  letter-spacing: 1px;
+  color: #3181f9;
+  text-align: center;
+  font-weight: 500;
+  line-height: 19px;
+  font-size: 16px;
+  border: 1px solid #3181f9;
+  height: 43px;
+  border-radius: 4px;
+  background-color: #fff;
+
+  & > div {
+    width: 250px;
+    display: flex;
+    align-items: center;
+    margin: auto;
+
+    img {
+      width: 25px;
+      height: 20px;
+      margin-right: 20px;
+    }
+  }
+}
+
+.error-notification {
+  text-align: center;
+  background-color: #3181f9;
+  padding: 20px 0px;
+  color: white;
+  font-weight: 700;
+}

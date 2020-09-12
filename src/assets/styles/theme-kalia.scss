@@ -1,0 +1,41 @@
+@import "~@angular/material/theming";
+@include mat-core();
+
+$kalia-blue: (
+  50: #e9f1ff,
+  100: #c8dcff,
+  200: #a4c5ff,
+  300: #7fadff,
+  400: #639cff,
+  500: #488aff,
+  600: #4182ff,
+  700: #3877ff,
+  800: #306dff,
+  900: #215aff,
+  A100: #ffffff,
+  A200: #ffffff,
+  A400: #d0dbff,
+  A700: #b7c7ff,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #000000,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000
+  )
+);
+
+$kalia-primary: mat-palette($kalia-blue, 500, 100, 900);
+$kalia-accent: mat-palette($mat-yellow, 500, 900, A100);
+$kalia-warn: mat-palette($mat-red, 800);
+$kalia-theme: mat-light-theme($kalia-primary, $kalia-accent, $kalia-warn);
+@include angular-material-theme($kalia-theme);
