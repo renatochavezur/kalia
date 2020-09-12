@@ -18,7 +18,7 @@ ionic serve
 ## Local Server with lab (not recommended)
 
 ```
-ionic serve lab2
+ionic serve -lab2
 ```
 
 ## Run Linter
