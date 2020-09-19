@@ -34,11 +34,13 @@
 
 .input-label {
   font-family: Ubuntu;
+  font-size: 500;
   color: #3181f9;
 }
 
 .input-entry {
   font-weight: 300;
+  font-size: 16px;
   font-family: Ubuntu;
 }
 
@@ -116,10 +118,47 @@
   }
 }
 
+.register-button {
+  width: 90%;
+  margin: 20px 5%;
+  padding: 0 16px;
+  letter-spacing: 1px;
+  color: #3181f9;
+  text-align: center;
+  font-weight: 500;
+  line-height: 19px;
+  font-size: 16px;
+  border: 1px solid #3181f9;
+  height: 43px;
+  border-radius: 4px;
+  background-color: #fff;
+}
+
 .error-notification {
   text-align: center;
   background-color: #3181f9;
   padding: 20px 0px;
   color: white;
   font-weight: 700;
+}
+
+.input {
+  width: 100%;
+}
+
+::ng-deep .mat-form-field-flex > .mat-form-field-infix {
+  padding: 9.4px 0px 9.4px !important;
+}
+
+::ng-deep .mat-form-field-label-wrapper {
+  top: -1.2em;
+}
+
+::ng-deep .mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
+  transform: translateY(-1.4em) scale(.75);
+  width: 133.33333%;
+}
+
+::ng-deep .mat-form-field-suffix {
+  align-self: center;
 }

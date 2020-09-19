@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { SearchEventsPage } from './search-events.page';
+import { LookEventPage } from './look-event.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: SearchEventsPage
+    component: LookEventPage
   }
 ];
 
@@ -14,4 +14,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class SearchEventsPageRoutingModule {}
+export class LookEventPageRoutingModule {}

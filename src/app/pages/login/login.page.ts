@@ -3,7 +3,7 @@ import { Validators, FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginService } from '../../services/login.service';
 import { UserDataService } from '../../services/user-data.service'
-
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-login',
@@ -27,6 +27,7 @@ export class LoginPage implements OnInit {
     private router: Router,
     private loginService: LoginService,
     private userDataService: UserDataService,
+    private snackBar: MatSnackBar,
   ) { }
 
   ngOnInit() {
@@ -48,6 +49,7 @@ export class LoginPage implements OnInit {
           }
         },
         error => {
+          this.openSnackBar('Usuario o contraseña incorrecto', 'X');
           this.form.enable();
           this.incorrectData = true;
         }
@@ -70,6 +72,12 @@ export class LoginPage implements OnInit {
   loginFacebook() {
     this.incorrectData = false;
     this.router.navigate(['/menu']);
+  }
+
+  openSnackBar(message: string, action: string) {
+    this.snackBar.open(message, action, {
+      duration: 2000,
+    });
   }
 
 }

@@ -10,12 +10,12 @@ export class MenuPage implements OnInit {
   public selectedIndex = 0;
   public appPages = [
     {
-      title: 'Mi Perfil',
+      title: 'Mi Cuenta',
       url: '/menu/profile',
       icon: 'person'
     },
     {
-      title: 'Eventos',
+      title: 'Mis Eventos',
       url: '/menu/events',
       icon: 'briefcase'
     },

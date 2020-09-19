@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>Mi Perfil</ion-title>
+    <ion-title>Mi Cuenta</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -15,7 +15,7 @@
           [elementType]="qrElementType" 
           [value]="code"
           [errorCorrectionLevel]="qrCorrectionLevel"
-          cssClass="qr-img">
+          cssClass="medium-qr-img">
         </ngx-qrcode>
       </div>
 
@@ -74,14 +74,14 @@
     <div *ngIf="qrTouched" class="qr-touched-container">
       <div class="qr-touched">
         <ngx-qrcode 
-          [elementType]="qrElementType" 
+          [elementType]="qrElementType"
           [value]="code"
           [errorCorrectionLevel]="qrCorrectionLevel"
           cssClass="qr-img"
           (click)="qrTouched=false">
         </ngx-qrcode>
         <div class="show-id">
-          <p> Tu ID es: <b class="blue-color">{{identificationCode}}</b> </p>
+          <p> Tu Kalia ID es: <b class="blue-color">{{identificationCode}}</b> </p>
         </div>
       </div>
     </div>

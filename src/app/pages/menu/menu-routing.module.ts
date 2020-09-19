@@ -25,10 +25,6 @@ const routes: Routes = [
         path: 'contacts',
         loadChildren: () => import('../contacts/contacts.module').then( m => m.ContactsPageModule)
       },
-      {
-        path: 'search-events',
-        loadChildren: () => import('../search-events/search-events.module').then( m => m.SearchEventsPageModule)
-      },
     ]
   },
 ];

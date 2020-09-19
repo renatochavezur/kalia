@@ -1,33 +1,22 @@
 <ion-content no-bounce class="no-scroll scroll-content">
-  <div *ngIf="incorrectData" class="error-notification">¡Usuario o contraseña incorrecta!</div>
   <div id="login-container">
     <img src="assets/img/kalia-blue-logo.svg" class="logo-kalia">
     <div class="container-form">
       <form ngNativeValidate [formGroup]="form" (ngSubmit)="login()" class="form">
-        <ion-item class="form-item">
-          <ion-label position="floating" class="input-label"><b>Usuario</b></ion-label>
-          <ion-input class="input-entry" formControlName="username" maxlength="128"></ion-input>
-        </ion-item>
-        <ion-item class="form-item">
-          <ion-label position="floating" class="input-label"><b>Contraseña</b>
-          </ion-label>
-          <ion-input type="password" formControlName="password" maxlength="128"></ion-input>
-        </ion-item>
+        <mat-form-field class="input" appearance="outline">
+          <mat-label class="input-label"><b>Usuario</b></mat-label>
+          <input matInput maxlength="64" formControlName="username" class="input-entry">
+        </mat-form-field>
+        <mat-form-field class="input" appearance="outline">
+          <mat-label class="input-label"><b>Contraseña</b></mat-label>
+          <input matInput formControlName="password" maxlength="128" type="password" class="input-entry">
+        </mat-form-field>
         <button class="submit-button">
           Entrar
         </button>
       </form>
-      <button class="google-button" (click)="loginGoogle()">
-        <div>
-          <img src="assets/icon/google-icon.png" alt>
-          <span>Ingresa con google</span>
-        </div>
-      </button>
-      <button class="facebook-button" (click)="loginFacebook()">
-        <div>
-          <img src="assets/icon/facebook-icon.png" alt>
-          <span>Ingresa con facebook</span>
-        </div>
+      <button class="register-button">
+        Registrate
       </button>
     </div>
   </div>

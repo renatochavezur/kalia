@@ -3,14 +3,20 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>Eventos</ion-title>
+    <ion-title>Mis Eventos</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <br>
   <div id="container" style="--ion-background-color: #FFFFFF">
-    <ion-searchbar style="--ion-background-color: #FFFFFF; text-align: left" color="light" placeholder="Busca tus eventos"></ion-searchbar>
+
+    <div class="filters">
+      <mat-chip-list>
+        <mat-chip color="primary" selected class="chip">Creados por mi</mat-chip>
+        <mat-chip color="primary" selected class="chip">Asistidos</mat-chip>
+      </mat-chip-list>
+    </div>
+    
     <ion-card class="event-card">
       <ion-card-header>
         <ion-card-subtitle><b>Conferencia Sala Central</b></ion-card-subtitle>
@@ -81,6 +87,6 @@
     </ion-card>
   </div>
   <div class="add-button-event" style="position: fixed; bottom: 50px; right: 30px;">
-      <ion-fab-button style="width:45px; height: 45px; font-size: 30px;">+</ion-fab-button>
+    <ion-fab-button style="width:45px; height: 45px; font-size: 30px;">+</ion-fab-button>
   </div>
 </ion-content>

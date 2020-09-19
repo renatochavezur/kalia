@@ -27,9 +27,13 @@ const routes: Routes = [
     loadChildren: () => import('./pages/create-event/create-event.module').then( m => m.CreateEventPageModule)
   },
   {
-    path: 'search-events',
-    loadChildren: () => import('./pages/search-events/search-events.module').then( m => m.SearchEventsPageModule)
-  }
+    path: 'look-event',
+    loadChildren: () => import('./pages/look-event/look-event.module').then( m => m.LookEventPageModule)
+  },
+  {
+    path: 'edit-event',
+    loadChildren: () => import('./pages/edit-event/edit-event.module').then( m => m.EditEventPageModule)
+  },
 ];
 
 @NgModule({
