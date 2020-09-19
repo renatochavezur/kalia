@@ -8,70 +8,72 @@
 </ion-header>
 
 <ion-content>
-  <div id="container"
-    style="background-color: rgb(255, 255, 255); width: 90%; margin: 0px auto; height: 630px; border-radius: 9px; padding: 30px 0px">
+  <div id="container">
     <div *ngIf="!qrTouched">
-      <div style="display: flex; flex-direction: column; justify-content: center" (click)="allowQr()">
-        <img class="qr-code" style="width: 200px; height: 200px; margin: auto"
-          src="https://kalia-app.s3.amazonaws.com/example.png" alt="Espera por tu QR ...">
+      <div class="container-qr" (click)="allowQr()">
+        <img class="qr-code" src="https://kalia-app.s3.amazonaws.com/example.png" alt="">
       </div>
 
-      <div class="form" style="max-width: 400px; width: 80%; margin: 30px auto 0px; background-color: #FFFFFF;">
-        <div style="display: flex; align-items: center">
-          <mat-form-field class="example-full-width" style="width: 100%">
+      <div class="form">
+        <div class="center">
+          <mat-form-field class="fullname-input">
             <mat-label>Nombre y Apellido</mat-label>
-            <input matInput value="" maxlength="128">
+            <input matInput [(ngModel)]="fullname" maxlength="128" required>
           </mat-form-field>
         </div>
 
-        <div style="display: flex; align-items: center">
-          <mat-checkbox class="example-margin" color="primary" style="margin-right: 20px;"></mat-checkbox>
-          <mat-form-field class="example-full-width" style="width: calc(100% - 40px)">
+        <div class="center">
+          <mat-checkbox class="checkbox" [(ngModel)]="showOccupation" color="primary"></mat-checkbox>
+          <mat-form-field class="input-form">
             <mat-label>Ocupacion</mat-label>
-            <input matInput value="">
+            <input matInput [(ngModel)]="occupation" maxlength="64">
           </mat-form-field>
         </div>
 
-        <div style="display: flex; align-items: center">
-          <mat-checkbox class="example-margin" color="primary" style="margin-right: 20px;"></mat-checkbox>
-          <mat-form-field class="example-full-width" style="width: calc(100% - 40px)">
+        <div class="center">
+          <mat-checkbox class="checkbox" [(ngModel)]="showPhone" color="primary"></mat-checkbox>
+          <mat-form-field class="input-form">
             <mat-label>Celular</mat-label>
-            <input matInput value="">
+            <input matInput [(ngModel)]="phone" maxlength="16">
           </mat-form-field>
         </div>
 
-        <div style="display: flex; align-items: center">
-          <mat-checkbox class="example-margin" color="primary" style="margin-right: 20px;"></mat-checkbox>
-          <mat-form-field class="example-full-width" style="width: calc(100% - 40px)">
+        <div class="center">
+          <mat-checkbox class="checkbox" [(ngModel)]="showEmail" color="primary"></mat-checkbox>
+          <mat-form-field class="input-form">
+            <mat-label>Email</mat-label>
+            <input matInput [(ngModel)]="email" maxlength="128">
+          </mat-form-field>
+        </div>
+
+        <div class="center">
+          <mat-checkbox class="checkbox" [(ngModel)]="showDni" color="primary"></mat-checkbox>
+          <mat-form-field class="input-form">
             <mat-label>Numero de Documento de Identidad</mat-label>
-            <input matInput value="">
+            <input matInput [(ngModel)]="dni" maxlength="16">
           </mat-form-field>
         </div>
 
-        <div style="display: flex; align-items: center">
-          <mat-checkbox class="example-margin" color="primary" style="margin-right: 20px;"></mat-checkbox>
-          <mat-form-field class="example-full-width" style="width: calc(100% - 74px); margin-right: 10px">
+        <div class="center">
+          <mat-checkbox class="checkbox" [(ngModel)]="showBirthDay" color="primary"></mat-checkbox>
+          <mat-form-field class="birthday-input">
             <mat-label>Fecha de Nacimiento</mat-label>
-            <input matInput value="" [matDatepicker]="picker" disabled>
+            <input matInput [(ngModel)]="birthDay" [matDatepicker]="picker" disabled>
             <mat-datepicker #picker disabled="false"></mat-datepicker>
           </mat-form-field>
-          <mat-icon (click)="picker.open()" style="font-size: 20px;">calendar_today</mat-icon>
+          <mat-icon (click)="picker.open()" class="date-picker">calendar_today</mat-icon>
         </div>
-
-        <br />
-        <button mat-button color="primary">Actualizar</button>
+        <button mat-button color="primary" (click)="submitUserData()">Actualizar</button>
       </div>
     </div>
-    <div *ngIf="qrTouched" style="margin: calc(50% - 125px) auto">
-      <div style="display: flex; flex-direction: column; justify-content: center">
-        <img class="qr-code" (click)="qrTouched=false"
-          style="width: 280px; height: 280px; margin: calc(50% - 125px) auto"
-          src="https://kalia-app.s3.amazonaws.com/example.png" alt="Espera por tu QR ...">
+    <div *ngIf="qrTouched" class="qr-touched-container">
+      <div class="qr-touched">
+        <img
+          class="qr-code" (click)="qrTouched=false"
+          src="https://kalia-app.s3.amazonaws.com/example.png" alt=""
+        >
         <div class="show-id">
-          <p
-            style="-webkit-user-select: text;-moz-user-select: text;-ms-user-select: text;user-select: text;font-family: ubuntu; font-size: 20px; ">
-            Tu ID es: <b style="color: #3181f9">123456789</b>
-          </p>
+          <p> Tu ID es: <b class="blue-color">{{identificationCode}}</b> </p>
         </div>
       </div>
     </div>

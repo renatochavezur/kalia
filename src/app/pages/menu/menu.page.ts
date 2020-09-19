@@ -15,7 +15,7 @@ export class MenuPage implements OnInit {
       icon: 'person'
     },
     {
-      title: 'Mis Eventos',
+      title: 'Eventos',
       url: '/menu/events',
       icon: 'briefcase'
     },
@@ -23,11 +23,6 @@ export class MenuPage implements OnInit {
       title: 'Contactos',
       url: '/menu/contacts',
       icon: 'people'
-    },
-    {
-      title: 'Eventos',
-      url: '/menu/search-events',
-      icon: 'albums'
     },
     {
       title: 'Salir',

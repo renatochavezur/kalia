@@ -7,7 +7,7 @@ import { environment } from '../../environments/environment';
 @Injectable({
   providedIn: 'root'
 })
-export class LoginService {
+export class ProfileService {
 
   baseUrl = environment.scheme + environment.apiURL;
 
@@ -15,12 +15,12 @@ export class LoginService {
     private readonly http: HttpClient,
   ) { }
 
-  loginUser(
-    credentials: any
+  updateUserData(
+    data: any
   ): Observable<any> {
-    return this.http.post(
-      this.baseUrl + 'auth/request_token/',
-      credentials,
+    return this.http.put(
+      this.baseUrl + 'users/',
+      data,
       {
         headers: {
           'Content-Type': 'application/json',

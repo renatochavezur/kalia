@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { LoginService } from '../../services/login.service'
+import { LoginService } from '../../services/login.service';
+import { UserDataService } from '../../services/user-data.service'
 
 
 @Component({
@@ -25,6 +26,7 @@ export class LoginPage implements OnInit {
   constructor(
     private router: Router,
     private loginService: LoginService,
+    private userDataService: UserDataService,
   ) { }
 
   ngOnInit() {
@@ -38,9 +40,8 @@ export class LoginPage implements OnInit {
       this.loginService.loginUser(this.form.value).subscribe(
         (result: any) => {
           this.form.enable();
-          this.setUserData(result);
-
           if (result.user) {
+            this.setUserData(result);
             this.router.navigate(['/menu']);
           } else {
             alert('Error accesing . Please try again');
@@ -58,7 +59,7 @@ export class LoginPage implements OnInit {
   }
 
   setUserData(userSessionData) {
-    localStorage.setItem('auth', userSessionData)
+    this.userDataService.setAuthUserData(userSessionData);
   }
 
   loginGoogle() {

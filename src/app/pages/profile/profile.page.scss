@@ -1,8 +1,13 @@
-
 #container {
   text-align: center;
   background-color: rgb(255, 255, 255);
   width: 100%;
+  background-color: rgb(255, 255, 255);
+  width: 90%;
+  margin: 0px auto;
+  height: 630px;
+  border-radius: 9px;
+  padding: 30px 0px;
 }
 
 #container strong {
@@ -22,9 +27,86 @@
 }
 
 mat-checkbox ::ng-deep .mat-checkbox-inner-container {
-  width: 20px;height: 20px;
+  width: 20px;
+  height: 20px;
 }
 
 .md-datepicker-input-container {
   width: 100%;
+}
+
+.container-qr {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  img {
+    width: 200px;
+    height: 200px;
+    margin: auto;
+  }
+}
+
+.form {
+  max-width: 400px;
+  width: 80%;
+  margin: 30px auto;
+  background-color: #ffffff;
+}
+
+.center {
+  display: flex;
+  align-items: center;
+}
+
+.fullname-input {
+  width: 100%;
+}
+
+.checkbox {
+  margin-right: 20px;
+}
+
+.input-form {
+  width: calc(100% - 40px);
+}
+
+.birthday-input {
+  width: calc(100% - 74px);
+  margin-right: 10px;
+}
+
+.date-picker {
+  font-size: 20px;
+}
+
+.qr-touched-container {
+  margin: calc(50% - 125px) auto;
+}
+
+.qr-touched {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  img {
+    width: 280px;
+    height: 280px;
+    margin: calc(50% - 125px) auto;
+  }
+}
+
+.show-id {
+  p {
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+    font-family: ubuntu;
+    font-size: 20px;
+  }
+}
+
+.blue-color {
+  color: #3181f9;
 }
