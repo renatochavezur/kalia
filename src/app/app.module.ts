@@ -35,7 +35,7 @@ import { MAT_SNACK_BAR_DEFAULT_OPTIONS, MatSnackBarModule } from '@angular/mater
         duration: 4000,
         horizontalPosition: 'center',
         verticalPosition: 'top',
-        panelClass: 'red-snackbar',
+        panelClass: ['mat-toolbar', 'mat-primary'],
       }
     },
     StatusBar,

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { UserDataService } from '../../services/user-data.service'
 import { ProfileService } from '../../services/profile.service'
+import { NgxQrcodeElementTypes, NgxQrcodeErrorCorrectionLevels } from '@techiediaries/ngx-qrcode';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-profile',
@@ -23,14 +25,20 @@ export class ProfilePage implements OnInit {
   showBirthDay = false;
   showOccupation = false;
   showEmail = false;
+  code = '';
+
+  qrElementType = NgxQrcodeElementTypes.URL;
+  qrCorrectionLevel = NgxQrcodeErrorCorrectionLevels.LOW;
 
   constructor(
     private userDataService: UserDataService,
-    private profileService: ProfileService
+    private profileService: ProfileService,
+    private snackBar: MatSnackBar,
   ) { }
 
   ngOnInit() {
     this.loadUserData();
+    this.code = this.getCode();
   }
 
   allowQr() {
@@ -46,12 +54,19 @@ export class ProfilePage implements OnInit {
     }, 250);
   }
 
+  completeDate(numberDate: Number) {
+    if (numberDate < 10) {
+      return '0' + numberDate;
+    }
+    return numberDate;
+  }
+
   submitUserData() {
     const data = {
       'fullname': this.fullname,
       'phone': this.phone,
       'email': this.email,
-      'birth_day': this.birthDay.getFullYear() + '-' + this.birthDay.getMonth() + '-' + this.birthDay.getDay(),
+      'birth_day': this.birthDay.getFullYear() + '-' + this.completeDate(this.birthDay.getMonth()) + '-' + this.completeDate(this.birthDay.getDay()),
       'dni': this.dni,
       'occupation': this.occupation,
       'show_birth_day': this.showBirthDay,
@@ -62,6 +77,7 @@ export class ProfilePage implements OnInit {
     }
     this.profileService.updateUserData(data).subscribe(response => {
       this.setLocalUserData();
+      this.openSnackBar('Informacion actualizada', 'Cerrar')
     },
     error => {
       console.warn('Hubo un problema al actualizar la data');
@@ -125,5 +141,15 @@ export class ProfilePage implements OnInit {
     userData.show_email = this.showEmail;
     authData.user = userData;
     this.userDataService.setAuthUserData(authData);
+  }
+
+  getCode() {
+    return 'kalia-qr-identification-code-link' + this.identificationCode;
+  }
+
+  openSnackBar(message: string, action: string) {
+    this.snackBar.open(message, action, {
+      duration: 2000,
+    });
   }
 }

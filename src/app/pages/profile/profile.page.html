@@ -11,7 +11,12 @@
   <div id="container">
     <div *ngIf="!qrTouched">
       <div class="container-qr" (click)="allowQr()">
-        <img class="qr-code" src="https://kalia-app.s3.amazonaws.com/example.png" alt="">
+        <ngx-qrcode 
+          [elementType]="qrElementType" 
+          [value]="code"
+          [errorCorrectionLevel]="qrCorrectionLevel"
+          cssClass="qr-img">
+        </ngx-qrcode>
       </div>
 
       <div class="form">
@@ -39,14 +44,6 @@
         </div>
 
         <div class="center">
-          <mat-checkbox class="checkbox" [(ngModel)]="showEmail" color="primary"></mat-checkbox>
-          <mat-form-field class="input-form">
-            <mat-label>Email</mat-label>
-            <input matInput [(ngModel)]="email" maxlength="128">
-          </mat-form-field>
-        </div>
-
-        <div class="center">
           <mat-checkbox class="checkbox" [(ngModel)]="showDni" color="primary"></mat-checkbox>
           <mat-form-field class="input-form">
             <mat-label>Numero de Documento de Identidad</mat-label>
@@ -63,15 +60,26 @@
           </mat-form-field>
           <mat-icon (click)="picker.open()" class="date-picker">calendar_today</mat-icon>
         </div>
+
+        <div class="center">
+          <mat-checkbox class="checkbox" [(ngModel)]="showEmail" color="primary"></mat-checkbox>
+          <mat-form-field class="input-form">
+            <mat-label>Email</mat-label>
+            <input matInput [(ngModel)]="email" maxlength="128" disabled>
+          </mat-form-field>
+        </div>
         <button mat-button color="primary" (click)="submitUserData()">Actualizar</button>
       </div>
     </div>
     <div *ngIf="qrTouched" class="qr-touched-container">
       <div class="qr-touched">
-        <img
-          class="qr-code" (click)="qrTouched=false"
-          src="https://kalia-app.s3.amazonaws.com/example.png" alt=""
-        >
+        <ngx-qrcode 
+          [elementType]="qrElementType" 
+          [value]="code"
+          [errorCorrectionLevel]="qrCorrectionLevel"
+          cssClass="qr-img"
+          (click)="qrTouched=false">
+        </ngx-qrcode>
         <div class="show-id">
           <p> Tu ID es: <b class="blue-color">{{identificationCode}}</b> </p>
         </div>
