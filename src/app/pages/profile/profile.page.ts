@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { UserDataService } from '../../services/user-data.service'
-import { ProfileService } from '../../services/profile.service'
+import { UserDataService } from '../../services/user-data.service';
+import { ProfileService } from '../../services/profile.service';
 import { NgxQrcodeElementTypes, NgxQrcodeErrorCorrectionLevels } from '@techiediaries/ngx-qrcode';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
@@ -54,30 +54,30 @@ export class ProfilePage implements OnInit {
     }, 250);
   }
 
-  completeDate(numberDate: Number) {
+  completeDate(numberDate: number) {
     if (numberDate < 10) {
-      return '0' + numberDate;
+      return `0${numberDate}`;
     }
     return numberDate;
   }
 
   submitUserData() {
     const data = {
-      'fullname': this.fullname,
-      'phone': this.phone,
-      'email': this.email,
-      'birth_day': this.birthDay.getFullYear() + '-' + this.completeDate(this.birthDay.getMonth()) + '-' + this.completeDate(this.birthDay.getDay()),
-      'dni': this.dni,
-      'occupation': this.occupation,
-      'show_birth_day': this.showBirthDay,
-      'show_dni': this.showDni,
-      'show_email': this.showEmail,
-      'show_occupation': this.showOccupation,
-      'show_phone': this.showPhone
-    }
+      fullname: this.fullname,
+      phone: this.phone,
+      email: this.email,
+      birth_day: `${this.birthDay.getFullYear()}-${this.completeDate(this.birthDay.getMonth())}-${this.completeDate(this.birthDay.getDay())}`,
+      dni: this.dni,
+      occupation: this.occupation,
+      show_birth_day: this.showBirthDay,
+      show_dni: this.showDni,
+      show_email: this.showEmail,
+      show_occupation: this.showOccupation,
+      show_phone: this.showPhone
+    };
     this.profileService.updateUserData(data).subscribe(response => {
       this.setLocalUserData();
-      this.openSnackBar('Informacion actualizada', 'Cerrar')
+      this.openSnackBar('Informacion actualizada', 'X');
     },
     error => {
       console.warn('Hubo un problema al actualizar la data');
@@ -85,8 +85,8 @@ export class ProfilePage implements OnInit {
   }
 
   loadUserData() {
-    let authData = this.userDataService.getAuthUserData();
-    let userData = authData.user;
+    const authData = this.userDataService.getAuthUserData();
+    const userData = authData.user;
     if (userData.birth_day) {
       this.birthDay = new Date(userData.birth_day);
     }
@@ -105,29 +105,29 @@ export class ProfilePage implements OnInit {
     if (userData.email) {
       this.email = userData.email;
     }
-    if(userData.show_phone) {
+    if (userData.show_phone) {
       this.showPhone = userData.show_phone;
     }
-    if(userData.show_dni) {
+    if (userData.show_dni) {
       this.showDni = userData.show_dni;
     }
-    if(userData.show_birth_day) {
+    if (userData.show_birth_day) {
       this.showBirthDay = userData.show_birth_day;
     }
-    if(userData.show_occupation) {
+    if (userData.show_occupation) {
       this.showOccupation = userData.show_occupation;
     }
-    if(userData.show_email) {
+    if (userData.show_email) {
       this.showEmail = userData.show_email;
     }
-    if(userData.identification_code) {
+    if (userData.identification_code) {
       this.identificationCode = userData.identification_code;
     }
   }
 
   setLocalUserData() {
-    let authData = this.userDataService.getAuthUserData();
-    let userData = authData.user;
+    const authData = this.userDataService.getAuthUserData();
+    const userData = authData.user;
     userData.birth_day = this.birthDay;
     userData.fullname = this.fullname;
     userData.phone = this.phone;

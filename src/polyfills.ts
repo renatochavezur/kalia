@@ -52,7 +52,8 @@
  *
  */
 
-(window as any)['global'] = window;
+const globalKey = 'global';
+(window as any)[globalKey] = window;
 
 import './zone-flags';
 

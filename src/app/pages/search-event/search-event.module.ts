@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { EditEventPageRoutingModule } from './edit-event-routing.module';
+import { SearchEventPageRoutingModule } from './search-event-routing.module';
 
-import { EditEventPage } from './edit-event.page';
+import { SearchEventPage } from './search-event.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    EditEventPageRoutingModule
+    SearchEventPageRoutingModule
   ],
-  declarations: [EditEventPage]
+  declarations: [SearchEventPage]
 })
-export class EditEventPageModule {}
+export class SearchEventPageModule {}

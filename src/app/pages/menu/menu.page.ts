@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { UserDataService } from '../../services/user-data.service'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-menu',
@@ -25,20 +27,28 @@ export class MenuPage implements OnInit {
       icon: 'people'
     },
     {
-      title: 'Salir',
-      url: '',
-      icon: 'exit'
+      title: 'Buscar Evento',
+      url: '/menu/search-event',
+      icon: 'search'
     },
   ];
-  public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
 
-  constructor() { }
+  constructor(
+    protected router: Router,
+    private userDataService: UserDataService
+  ) { }
 
   ngOnInit() {
     const path = window.location.pathname.split('folder/')[1];
     if (path !== undefined) {
       this.selectedIndex = this.appPages.findIndex(page => page.title.toLowerCase() === path.toLowerCase());
     }
+  }
+
+  logout() {
+    this.selectedIndex = 0;
+    this.userDataService.deleteAuthData();
+    this.router.navigateByUrl('');
   }
 
 }

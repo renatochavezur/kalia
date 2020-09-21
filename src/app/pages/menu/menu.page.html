@@ -7,9 +7,27 @@
         <ion-note>Reunirse nunca fue tan facil</ion-note>
 
         <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
-          <ion-item (click)="selectedIndex = i" routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" [class.selected]="selectedIndex == i">
+          <ion-item
+            (click)="selectedIndex = i"
+            routerDirection="root"
+            [routerLink]="[p.url]"
+            lines="none"
+            detail="false"
+            [class.selected]="selectedIndex == i"
+          >
             <ion-icon slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
             <ion-label>{{ p.title }}</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle auto-hide="false">
+          <ion-item
+            (click)="logout()"
+            routerDirection="root"
+            lines="none"
+            detail="false"
+          >
+            <ion-icon slot="start" ios="exit-outline" md="exit-sharp"></ion-icon>
+            <ion-label>Salir</ion-label>
           </ion-item>
         </ion-menu-toggle>
       </ion-list>

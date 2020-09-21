@@ -1,5 +1,4 @@
 import {Injectable, Injector} from '@angular/core';
-import {isNull, isUndefined} from 'util';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +10,7 @@ export class UserDataService {
   getAuthUserData() {
     const authData = localStorage.getItem('auth');
     let authUserData = null;
-    if (!isNull(authData) && !isUndefined(authData)) {
+    if (authData !== null && authData !== undefined) {
       authUserData = JSON.parse(authData);
     }
     return authUserData;
@@ -19,5 +18,9 @@ export class UserDataService {
 
   setAuthUserData(authData) {
     localStorage.setItem('auth', JSON.stringify(authData));
+  }
+
+  deleteAuthData() {
+    localStorage.removeItem('auth');
   }
 }
