@@ -23,6 +23,7 @@ import { MAT_SNACK_BAR_DEFAULT_OPTIONS, MatSnackBarModule } from '@angular/mater
     BrowserAnimationsModule,
     HttpClientModule,
     MatSnackBarModule,
+    IonicModule,
   ],
   providers: [
     {
