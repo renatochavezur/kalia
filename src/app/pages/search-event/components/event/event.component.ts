@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
+import { isUndefined } from 'util';
+import { EventsService } from '../../../../services/events.service';
 
 @Component({
   selector: 'app-event',
@@ -7,8 +10,35 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EventComponent implements OnInit {
 
-  constructor() { }
+  eventId = 0;
+  event: any;
 
-  ngOnInit() {}
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+    private eventsService: EventsService
+  ) { }
+
+  getEventData() {
+    this.eventsService.getEventData(this.eventId).subscribe(
+      response => {
+        this.event = response;
+        console.log(this.event);
+      }
+    );
+  }
+
+  ngOnInit() {
+    this.route.queryParams.subscribe(
+      params => {
+        if (isUndefined(params.id)) {
+          this.router.navigate(['/courses']);
+          return false;
+        }
+        this.eventId = params.id;
+        this.getEventData();
+      }
+    );
+  }
 
 }

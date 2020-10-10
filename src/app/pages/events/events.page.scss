@@ -3,7 +3,6 @@ ion-menu-button {
 }
 
 #container {
-  text-align: center;
   left: 0;
   right: 0;
   padding: 0px 10px 40px;
@@ -32,11 +31,23 @@ ion-menu-button {
 
 .filters {
   max-width: 215px;
-  margin: 20px auto;
+  margin: 16px auto 8px;
   align-self: center;
   text-align: center;
 }
 
 .event-card {
   max-height: 250px;
+}
+
+.add-event-button {
+  position: fixed;
+  bottom: 50px;
+  right: 30px;
+
+  .icon-plus {
+    width: 45px;
+    height: 45px;
+    font-size: 30px;
+  }
 }

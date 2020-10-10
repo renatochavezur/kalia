@@ -1,0 +1,104 @@
+
+.general-container {
+  margin: 30px 30px;
+}
+
+.title {
+  font-family: "Ubuntu";
+  color: var(--ion-color-primary);
+  font-weight: 700;
+  font-size: 42px;
+  text-align: center;
+  margin: auto;
+  height: 50px;
+  line-height: 1.4;
+  margin-bottom: 120px;
+}
+
+.container-form {
+  background-color: rgb(255, 255, 255);
+  bottom: 30px;
+  left: 0;
+  right: 0;
+  padding: 0px 0px 20px;
+  border-radius: 9px;
+}
+
+.form {
+  width: 90%;
+  margin: 0px auto;
+  background-color: #ffffff;
+}
+
+.input-label {
+  font-family: Ubuntu;
+  font-size: 500;
+  color: #3181f9;
+}
+
+.input-entry {
+  font-weight: 300;
+  font-size: 16px;
+  font-family: Ubuntu;
+}
+
+.register-button {
+  width: 100%;
+  margin-top: 50px;
+  letter-spacing: 1px;
+  color: white;
+  text-align: center;
+  font-weight: 700;
+  line-height: 19px;
+  font-size: 16px;
+  border: 1px solid #3181f9;
+  height: 43px;
+  border-radius: 4px;
+  border: 1px solid #b9c5d4;
+  background-color: #3181f9;
+}
+
+.go-login-button {
+  width: 90%;
+  margin: 20px 5%;
+  padding: 0 16px;
+  letter-spacing: 1px;
+  color: #3181f9;
+  text-align: center;
+  font-weight: 500;
+  line-height: 19px;
+  font-size: 16px;
+  border: 1px solid #3181f9;
+  height: 43px;
+  border-radius: 4px;
+  background-color: #fff;
+}
+
+.error-notification {
+  text-align: center;
+  background-color: #3181f9;
+  padding: 20px 0px;
+  color: white;
+  font-weight: 700;
+}
+
+.input {
+  width: 100%;
+}
+
+::ng-deep .mat-form-field-flex > .mat-form-field-infix {
+  padding: 9.4px 0px 9.4px !important;
+}
+
+::ng-deep .mat-form-field-label-wrapper {
+  top: -1.2em;
+}
+
+::ng-deep .mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
+  transform: translateY(-1.4em) scale(.75);
+  width: 133.33333%;
+}
+
+::ng-deep .mat-form-field-suffix {
+  align-self: center;
+}

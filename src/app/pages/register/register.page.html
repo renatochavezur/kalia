@@ -1,0 +1,40 @@
+<ion-content>
+  <div class="general-container">
+    <div class="title">
+      <p>Unete a la familia Kalia</p>
+    </div>
+    <div *ngIf="!isVerificationForm" class="register-form">
+      <form ngNativeValidate [formGroup]="form" (ngSubmit)="goToVerificationForm()" class="form">
+        <mat-form-field class="input" appearance="outline">
+          <mat-label class="input-label"><b>Nombre Completo</b></mat-label>
+          <input matInput maxlength="64" formControlName="fullname" class="input-entry">
+        </mat-form-field>
+        <mat-form-field class="input" appearance="outline">
+          <mat-label class="input-label"><b>Email</b></mat-label>
+          <input matInput maxlength="64" formControlName="username" class="input-entry">
+        </mat-form-field>
+        <mat-form-field class="input" appearance="outline">
+          <mat-label class="input-label"><b>Contraseña</b></mat-label>
+          <input matInput formControlName="password" maxlength="128" type="password" class="input-entry">
+        </mat-form-field>
+        <button class="register-button">
+          Continuar
+        </button>
+      </form>
+    </div>
+    <div *ngIf="isVerificationForm" class="verification-form">
+      <form ngNativeValidate [formGroup]="verificationForm" (ngSubmit)="register()" class="form">
+        <mat-form-field class="input" appearance="outline">
+          <mat-label class="input-label"><b>Codigo de Verificacion</b></mat-label>
+          <input matInput maxlength="64" formControlName="code" class="input-entry">
+        </mat-form-field>
+        <button class="register-button">
+          Registrarse
+        </button>
+      </form>
+    </div>
+    <button class="go-login-button" (click)="goToLogin()">
+      Volver al Login
+    </button>
+  </div>
+</ion-content>

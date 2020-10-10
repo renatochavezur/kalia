@@ -4,7 +4,7 @@
     <div class="container-form">
       <form ngNativeValidate [formGroup]="form" (ngSubmit)="login()" class="form">
         <mat-form-field class="input" appearance="outline">
-          <mat-label class="input-label"><b>Usuario</b></mat-label>
+          <mat-label class="input-label"><b>Usuario o email</b></mat-label>
           <input matInput maxlength="64" formControlName="username" class="input-entry">
         </mat-form-field>
         <mat-form-field class="input" appearance="outline">
@@ -15,7 +15,7 @@
           Entrar
         </button>
       </form>
-      <button class="register-button">
+      <button class="register-button" routerLink="/register">
         Registrate
       </button>
     </div>

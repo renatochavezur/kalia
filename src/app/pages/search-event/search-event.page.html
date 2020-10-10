@@ -9,5 +9,33 @@
 
 <ion-content>
   <div id="container">
+    <div class="filters">
+      <mat-chip-list>
+        <mat-chip color="primary" [selected]="searchName" class="chip" (click)="setSearchName()">Buscar por nombre
+        </mat-chip>
+        <mat-chip color="primary" [selected]="searchCode" class="chip" (click)="setSearchCode()">Buscar por codigo
+        </mat-chip>
+      </mat-chip-list>
+    </div>
+    <div class="events-by-name">
+      <ion-searchbar [placeholder]="setPlaceholderSearch()" showCancelIcon="always" (ionInput)="getTermEventList($event)"></ion-searchbar>
+    </div>
+    <ion-card *ngFor="let event of events" class="event-card" routerLink="/menu/search-event/event" [queryParams]="{id: event.id}">
+      <ion-card-header>
+        <ion-card-subtitle><b>{{event.name}}</b></ion-card-subtitle>
+      </ion-card-header>
+
+      <ion-card-content style="text-align: left">
+        {{event.summary}}
+        <br>
+        <b>Inicio</b>: {{event.start_time}}
+        <br>
+        <b>Fin</b>: {{event.end_time}}
+        <br>
+        <b>Estado</b>: {{statusStates[event.status]}}
+        <br>
+        <b>Modalidad</b>: {{modeStates[event.mode]}}
+      </ion-card-content>
+    </ion-card>
   </div>
 </ion-content>

@@ -1,0 +1,68 @@
+.input {
+  width: 100%;
+  margin: auto;
+
+  .date-picker {
+    font-size: 20px;
+  }
+}
+
+#container {
+  display: flex;
+  padding: 20px 12px;
+  min-height: 100%;
+  align-items: center;
+}
+
+.event-form {
+  margin: auto;
+}
+
+.submit-button {
+  width: 100%;
+  margin: 30px 0px;
+  letter-spacing: 1px;
+  color: white;
+  text-align: center;
+  font-weight: 700;
+  line-height: 19px;
+  font-size: 16px;
+  border: 1px solid #3181f9;
+  height: 43px;
+  border-radius: 4px;
+  border: 1px solid #b9c5d4;
+  background-color: #3181f9;
+}
+
+.date-input {
+  width: calc(100% - 34px);
+  margin-right: 10px;
+}
+
+.row-input {
+  display: flex;
+  flex-direction: row;
+
+  .mid-input {
+    width: 50%;
+  }
+}
+
+::ng-deep .mat-form-field-flex > .mat-form-field-infix {
+  padding: 9.4px 0px 9.4px !important;
+}
+
+::ng-deep .mat-form-field-label-wrapper {
+  top: -1.2em;
+}
+
+::ng-deep
+  .mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float
+  .mat-form-field-label {
+  transform: translateY(-1.4em) scale(0.75);
+  width: 133.33333%;
+}
+
+::ng-deep .mat-form-field-suffix {
+  align-self: center;
+}

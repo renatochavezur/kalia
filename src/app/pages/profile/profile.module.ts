@@ -12,7 +12,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
 import { MatIconModule } from '@angular/material/icon';
 import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
-import { AccountDataComponent } from './components/account-data/account-data.component'
+import { AccountDataComponent } from './components/account-data/account-data.component';
 
 @NgModule({
   imports: [

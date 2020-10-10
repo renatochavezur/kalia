@@ -6,6 +6,11 @@ import { AuthRedirectGuard } from './utils/authredirectguard';
 const routes: Routes = [
   {
     path: '',
+    redirectTo: 'login',
+    pathMatch: 'full'
+  },
+  {
+    path: 'login',
     loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule),
     canActivate: [AuthRedirectGuard]
   },
@@ -13,6 +18,10 @@ const routes: Routes = [
     path: 'menu',
     loadChildren: () => import('./pages/menu/menu.module').then( m => m.MenuPageModule),
     canActivate: [AuthGuard]
+  },
+  {
+    path: 'register',
+    loadChildren: () => import('./pages/register/register.module').then( m => m.RegisterPageModule)
   },
 ];
 

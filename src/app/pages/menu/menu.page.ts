@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UserDataService } from '../../services/user-data.service'
+import { UserDataService } from '../../services/user-data.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -48,7 +48,7 @@ export class MenuPage implements OnInit {
   logout() {
     this.selectedIndex = 0;
     this.userDataService.deleteAuthData();
-    this.router.navigateByUrl('');
+    this.router.navigateByUrl('login');
   }
 
 }

@@ -12,81 +12,32 @@
 
     <div class="filters">
       <mat-chip-list>
-        <mat-chip color="primary" selected class="chip">Creados por mi</mat-chip>
-        <mat-chip color="primary" selected class="chip">Asistidos</mat-chip>
+        <mat-chip color="primary" [selected]="owned" class="chip" (click)="setOwnedEventList()">Creados por mi</mat-chip>
+        <mat-chip color="primary" [selected]="enrolled" class="chip" (click)="setEnrolledEventList()">Asistidos</mat-chip>
       </mat-chip-list>
     </div>
-    
-    <ion-card class="event-card">
+
+    <ion-searchbar placeholder="Nombre del Evento" showCancelIcon="always" (ionInput)="getTermEventList($event)"></ion-searchbar>
+
+    <ion-card *ngFor="let event of events" class="event-card">
       <ion-card-header>
-        <ion-card-subtitle><b>Conferencia Sala Central</b></ion-card-subtitle>
+        <ion-card-subtitle><b>{{event.name}}</b></ion-card-subtitle>
       </ion-card-header>
 
       <ion-card-content style="text-align: left">
-        Gran conferencia en la sala central
+        {{event.summary}}
         <br>
-        <b>Inicio</b>: 10 am, 10 de octubre
+        <b>Inicio</b>: {{event.start_time}}
         <br>
-        <b>Fin</b>: 10 pm, 10 de octubre
+        <b>Fin</b>: {{event.end_time}}
         <br>
-        <b>Estado</b>: Abierto
+        <b>Estado</b>: {{statusStates[event.status]}}
         <br>
-        <b>Modalidad</b>: Presencial
-      </ion-card-content>
-    </ion-card>
-    <ion-card class="event-card">
-      <ion-card-header>
-        <ion-card-subtitle><b>Conferencia Sala Central</b></ion-card-subtitle>
-      </ion-card-header>
-
-      <ion-card-content style="text-align: left">
-        Gran conferencia en la sala central
-        <br>
-        <b>Inicio</b>: 10 am, 10 de octubre
-        <br>
-        <b>Fin</b>: 10 pm, 10 de octubre
-        <br>
-        <b>Estado</b>: Sin Cupos
-        <br>
-        <b>Modalidad</b>: Virtual
-      </ion-card-content>
-    </ion-card>
-    <ion-card class="event-card">
-      <ion-card-header>
-        <ion-card-subtitle><b>Conferencia Sala Central</b></ion-card-subtitle>
-      </ion-card-header>
-
-      <ion-card-content style="text-align: left">
-        Gran conferencia en la sala central
-        <br>
-        <b>Inicio</b>: 10 am, 10 de octubre
-        <br>
-        <b>Fin</b>: 10 pm, 10 de octubre
-        <br>
-        <b>Estado</b>: Terminado
-        <br>
-        <b>Modalidad</b>: Virtual
-      </ion-card-content>
-    </ion-card>
-    <ion-card class="event-card">
-      <ion-card-header>
-        <ion-card-subtitle><b>Conferencia Sala Central</b></ion-card-subtitle>
-      </ion-card-header>
-
-      <ion-card-content style="text-align: left">
-        Gran conferencia en la sala central
-        <br>
-        <b>Inicio</b>: 10 am, 10 de octubre
-        <br>
-        <b>Fin</b>: 10 pm, 10 de octubre
-        <br>
-        <b>Estado</b>: Abierto
-        <br>
-        <b>Modalidad</b>: Virtual
+        <b>Modalidad</b>: {{modeStates[event.mode]}}
       </ion-card-content>
     </ion-card>
   </div>
-  <div class="add-button-event" style="position: fixed; bottom: 50px; right: 30px;">
-    <ion-fab-button style="width:45px; height: 45px; font-size: 30px;">+</ion-fab-button>
+  <div routerLink="/menu/events/create-event" class="add-event-button">
+    <ion-fab-button class="icon-plus">+</ion-fab-button>
   </div>
 </ion-content>

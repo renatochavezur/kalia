@@ -19,7 +19,7 @@ export class ProfileService {
     data: any
   ): Observable<any> {
     return this.http.put(
-      this.baseUrl + 'users/',
+      this.baseUrl + 'users/user_data/',
       data,
       {
         headers: {
