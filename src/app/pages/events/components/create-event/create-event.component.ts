@@ -45,7 +45,7 @@ export class CreateEventComponent implements OnInit {
   ngOnInit() {}
 
   createEvent() {
-    const formData = this.eventForm.value
+    const formData = this.eventForm.value;
     const data = {
       name: formData.name,
       summary: formData.summary,
@@ -56,10 +56,10 @@ export class CreateEventComponent implements OnInit {
       meeting_url: formData.meetUrl,
       start_time: formData.startTime,
       end_time: formData.endTime,
-    }
+    };
     this.eventsService.createEvent(data).subscribe(
       (response: any) => {
-        this.router.navigateByUrl('/menu/events/edit-event');
+        this.router.navigate(['/menu/events/event'], { queryParams: { id: response.id } });
       }
     );
   }

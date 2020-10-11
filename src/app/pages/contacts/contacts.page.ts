@@ -17,7 +17,7 @@ export class ContactsPage implements OnInit {
     {
       name: 'Renato Robert Chavez',
     },
-  ]
+  ];
 
   constructor() { }
 

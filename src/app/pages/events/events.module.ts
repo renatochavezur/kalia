@@ -12,11 +12,14 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatListModule } from '@angular/material/list';
 
 import { EventsPageRoutingModule } from './events-routing.module';
 import { EventsPage } from './events.page';
 import { CreateEventComponent } from './components/create-event/create-event.component';
 import { EditEventComponent } from './components/edit-event/edit-event.component';
+import { EventComponent } from './components/event/event.component';
 
 @NgModule({
   imports: [
@@ -34,6 +37,8 @@ import { EditEventComponent } from './components/edit-event/edit-event.component
     MatNativeDateModule,
     MatIconModule,
     MatSelectModule,
+    MatDividerModule,
+    MatListModule,
   ],
   providers: [
     { provide: MAT_DATE_LOCALE, useValue: 'en-GB' }
@@ -42,6 +47,7 @@ import { EditEventComponent } from './components/edit-event/edit-event.component
     EventsPage,
     CreateEventComponent,
     EditEventComponent,
+    EventComponent,
   ]
 })
 export class EventsPageModule {}

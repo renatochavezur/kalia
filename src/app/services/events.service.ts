@@ -29,19 +29,42 @@ export class EventsService {
     );
   }
 
-  getEventsList(term=null, owned=null, enrolled=null, code=null): Observable<any> {
+  updateEvent(
+    data: any,
+    id
+  ): Observable<any> {
+    return this.http.patch(
+      this.baseUrl + 'events/' + id + '/',
+      data,
+      {
+        headers: {
+          'Content-Type': 'application/json',
+        }
+      }
+    );
+  }
+
+  getEventsList(term = null, owned = null, enrolled = null, code = null, status = null): Observable<any> {
     const params = {};
+    const TERM = 'term';
+    const OWNED = 'owned';
+    const ENROLLED = 'enrolled';
+    const CODE = 'code';
+    const STATUS = 'status';
     if (term) {
-      params['term'] = term;
+      params[TERM] = term;
     }
     if (owned) {
-      params['owned'] = 'true';
+      params[OWNED] = 'true';
     }
     if (enrolled) {
-      params['enrolled'] = 'true';
+      params[ENROLLED] = 'true';
     }
     if (code) {
-      params['code'] = code;
+      params[CODE] = code;
+    }
+    if (status) {
+      params[STATUS] = status;
     }
     return this.http.get(
       this.baseUrl + 'events/',

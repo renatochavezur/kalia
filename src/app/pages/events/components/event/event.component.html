@@ -1,0 +1,81 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Evento</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div id="container" *ngIf="event">
+    <div class="eventName">
+      <p>{{event.name}}</p>
+      <div routerLink="/menu/events/edit-event" [queryParams]="{id: eventId}">
+        <ion-icon *ngIf="own" name="create-outline">
+        </ion-icon>
+      </div>
+    </div>
+    <mat-list>
+      <div>
+        <div class="field">
+          <div class="name-field purple-color">Descripcion Corta</div>
+          <div class="value-field">{{event.summary}}</div>
+        </div>
+      </div>
+      <div>
+        <div class="field">
+          <div class="name-field purple-color">Codigo</div>
+          <div class="value-field">{{event.event_code}}</div>
+        </div>
+      </div>
+      <mat-divider></mat-divider>
+      <div>
+        <div class="field">
+          <div class="name-field blue-color">Fecha de inicio</div>
+          <div class="value-field">{{event.start_time}}</div>
+        </div>
+      </div>
+      <div>
+        <div class="field">
+          <div class="name-field blue-color">Fecha de fin</div>
+          <div class="value-field">{{event.end_time}}</div>
+        </div>
+      </div>
+      <mat-divider></mat-divider>
+      <div *ngIf="event.description">
+        <div class="field">
+          <div class="name-field green-color">Descripcion Completa</div>
+          <div class="value-field">{{event.description}}</div>
+        </div>
+      </div>
+      <div>
+        <div class="field">
+          <div class="name-field green-color">Modalidad</div>
+          <div class="value-field">{{event.mode}}</div>
+        </div>
+      </div>
+      <div *ngIf="event.place">
+        <div class="field">
+          <div class="name-field green-color">Lugar</div>
+          <div class="value-field">{{event.place}}</div>
+        </div>
+      </div>
+      <mat-divider></mat-divider>
+      <div *ngIf="event.meeting_url">
+        <div class="field">
+          <div class="name-field yellow-color">Meeting URL</div>
+          <div class="value-field">{{event.meeting_url}}</div>
+        </div>
+      </div>
+      <div *ngIf="event.maps_url">
+        <div class="field">
+          <div class="name-field yellow-color">Map URL</div>
+          <div class="value-field">{{event.maps_url}}</div>
+        </div>
+      </div>
+    </mat-list>
+  </div>
+
+  <div></div>
+</ion-content>

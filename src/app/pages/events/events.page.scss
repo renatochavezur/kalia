@@ -29,9 +29,31 @@ ion-menu-button {
   margin: 20px 10px 10px;
 }
 
-.filters {
-  max-width: 215px;
-  margin: 16px auto 8px;
+.filter-button {
+  text-align: center;
+  margin-top: 8px;
+  cursor: pointer;
+  color: var(--ion-color-primary);
+  font-size: 14px;
+}
+
+.filters-own {
+  max-width: 220px;
+  margin: 8px auto 0px;
+  align-self: center;
+  text-align: center;
+}
+
+.filters-search {
+  max-width: 290px;
+  margin: 2px auto 0px;
+  align-self: center;
+  text-align: center;
+}
+
+.filters-status {
+  max-width: 260px;
+  margin: 2px auto 8px;
   align-self: center;
   text-align: center;
 }
@@ -50,4 +72,20 @@ ion-menu-button {
     height: 45px;
     font-size: 30px;
   }
+}
+
+.blue-color {
+  color: var(--ion-color-primary);
+}
+
+.white-blue-color {
+  color: #70c0c0;
+}
+
+.green-color {
+  color: #579654;
+}
+
+.purple-color {
+  color: #9951bb;
 }

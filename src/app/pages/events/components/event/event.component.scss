@@ -1,0 +1,54 @@
+#container {
+  padding: 20px;
+  min-height: 100%;
+}
+
+.field {
+  margin: 12px 0px 8px;
+
+  .name-field {
+    font-weight: 600;
+    font-family: "Ubuntu";
+  }
+
+  .value-field {
+    color: var(--ion-color-medium-shade);
+  }
+}
+
+.eventName {
+  max-width: 100%;
+  color: var(--ion-color-primary);
+  font-weight: 700;
+  font-family: "Ubuntu";
+  font-size: 24px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+
+  p {
+    margin: 0px auto;
+    max-width: 80%;
+  }
+}
+
+.red-color {
+  color: #f44336;
+}
+
+.blue-color {
+  color: var(--ion-color-primary);
+}
+
+.yellow-color {
+  color: #cabc3c;
+}
+
+.green-color {
+  color: #579654;
+}
+
+.purple-color {
+  color: #9951bb;
+}

@@ -3,37 +3,63 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>Mis Eventos</ion-title>
+    <ion-title>Eventos</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <div id="container">
+    <div class="filter-button"><b (click)="showFilters()">{{textFilters}}</b></div>
+    <div *ngIf="filters">
+      <div class="filters-own">
+        <mat-chip-list>
+          <mat-chip color="primary" [selected]="owned" class="chip" (click)="setOwnedEventList()">Creados por mi
+          </mat-chip>
+          <mat-chip color="primary" [selected]="enrolled" class="chip" (click)="setEnrolledEventList()">Asistidos
+          </mat-chip>
+        </mat-chip-list>
+      </div>
 
-    <div class="filters">
-      <mat-chip-list>
-        <mat-chip color="primary" [selected]="owned" class="chip" (click)="setOwnedEventList()">Creados por mi</mat-chip>
-        <mat-chip color="primary" [selected]="enrolled" class="chip" (click)="setEnrolledEventList()">Asistidos</mat-chip>
-      </mat-chip-list>
+      <div class="filters-search">
+        <mat-chip-list>
+          <mat-chip color="accent" [selected]="searchBy=='NAME'" class="chip" (click)="setKindSearch('NAME')">Buscar por nombre
+          </mat-chip>
+          <mat-chip color="accent" [selected]="searchBy=='CODE'" class="chip" (click)="setKindSearch('CODE')">Buscar por codigo
+          </mat-chip>
+        </mat-chip-list>
+      </div>
+
+      <div class="filters-status">
+        <mat-chip-list>
+          <mat-chip color="warn" [selected]="statusSearch=='OPEN'" class="chip" (click)="setStatus('OPEN')">Abierto
+          </mat-chip>
+          <mat-chip color="warn" [selected]="statusSearch=='CLOSED'" class="chip" (click)="setStatus('CLOSED')">Cerrado
+          </mat-chip>
+          <mat-chip color="warn" [selected]="statusSearch=='PROGRESS'" class="chip" (click)="setStatus('PROGRESS')">En progreso
+          </mat-chip>
+        </mat-chip-list>
+      </div>
     </div>
 
-    <ion-searchbar placeholder="Nombre del Evento" showCancelIcon="always" (ionInput)="getTermEventList($event)"></ion-searchbar>
+    <ion-searchbar [placeholder]="setPlaceholderSearch()" showCancelIcon="always" (ionInput)="getTermEventList($event)">
+    </ion-searchbar>
 
-    <ion-card *ngFor="let event of events" class="event-card">
+    <ion-card *ngFor="let event of events" class="event-card" routerLink="/menu/events/event"
+      [queryParams]="{id: event.id}">
       <ion-card-header>
-        <ion-card-subtitle><b>{{event.name}}</b></ion-card-subtitle>
+        <ion-card-subtitle><b class="blue-color">{{event.name}}</b></ion-card-subtitle>
       </ion-card-header>
 
-      <ion-card-content style="text-align: left">
+      <ion-card-content>
         {{event.summary}}
         <br>
-        <b>Inicio</b>: {{event.start_time}}
+        <b class="white-blue-color">Inicio</b>: {{event.start_time}}
         <br>
-        <b>Fin</b>: {{event.end_time}}
+        <b class="white-blue-color">Fin</b>: {{event.end_time}}
         <br>
-        <b>Estado</b>: {{statusStates[event.status]}}
+        <b class="white-blue-color">Estado</b>: {{statusStates[event.status]}}
         <br>
-        <b>Modalidad</b>: {{modeStates[event.mode]}}
+        <b class="white-blue-color">Modalidad</b>: {{modeStates[event.mode]}}
       </ion-card-content>
     </ion-card>
   </div>

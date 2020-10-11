@@ -1,70 +1,99 @@
 <ion-header [translucent]="true">
-    <ion-toolbar>
-      <ion-buttons slot="start">
-        <ion-menu-button></ion-menu-button>
-      </ion-buttons>
-      <ion-title>Editar Evento</ion-title>
-    </ion-toolbar>
-  </ion-header>
-  
-  <ion-content>
-    <div id="container">
-      <form [formGroup]="eventForm">
-        <mat-accordion>
-          <mat-expansion-panel [expanded]="true">
-            <mat-expansion-panel-header>
-              <mat-panel-title>
-                Datos del Evento
-              </mat-panel-title>
-            </mat-expansion-panel-header>
-            <div class="form-container">
-              <mat-form-field appearance="outline" class="input">
-                <mat-label>Descripcion Corta</mat-label>
-                <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="2"
-                  cdkAutosizeMaxRows="3" formControlName="summary">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Editar Evento</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div id="container" *ngIf="eventForm">
+    <form [formGroup]="eventForm" class="event-form" (ngSubmit)="updateEvent()">
+      <mat-accordion>
+        <mat-expansion-panel [expanded]="true">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Datos del Evento
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div class="form-container">
+            <mat-form-field appearance="outline" class="input">
+              <mat-label>Nombre del Evento</mat-label>
+              <input matInput formControlName="name">
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="input">
+              <mat-label>Descripcion Corta</mat-label>
+              <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="2"
+                cdkAutosizeMaxRows="3" formControlName="summary">
               </textarea>
-              </mat-form-field>
-              <mat-form-field appearance="outline" class="input">
-                <mat-label>Modalidad</mat-label>
-                <input matInput formControlName="mode">
-              </mat-form-field>
-              <mat-form-field appearance="outline" class="input">
-                <mat-label>Hora de Inicio</mat-label>
-                <input matInput formControlName="startTime">
-              </mat-form-field>
-              <mat-form-field appearance="outline" class="input">
-                <mat-label>Hora de Fin</mat-label>
-                <input matInput formControlName="endTime">
-              </mat-form-field>
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="input">
+              <mat-label>Modalidad</mat-label>
+              <mat-select formControlName="mode">
+                <mat-option value="PRESENTIAL">
+                  Presencial
+                </mat-option>
+                <mat-option value="VIRTUAL">
+                  Virtual
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <div class="input">
+              <ion-label>Fecha y hora de inicio</ion-label>
+              <div class="row-input">
+                <div class="mid-input">
+                  <ion-datetime formControlName="startTime" displayFormat="DD MM YYYY" placeholder="Fecha">
+                  </ion-datetime>
+                </div>
+                <div class="mid-input">
+                  <ion-datetime formControlName="startTime" displayFormat="hh:mm a" placeholder="Hora">
+                  </ion-datetime>
+                </div>
+              </div>
             </div>
-          </mat-expansion-panel>
-          <mat-expansion-panel>
-            <mat-expansion-panel-header>
-              <mat-panel-title>
-                Datos Adicionales
-              </mat-panel-title>
-            </mat-expansion-panel-header>
-            <mat-form-field appearance="outline" class="input">
-              <mat-label>Descripcion Completa</mat-label>
-              <textarea matInput cdkTextareaAutosize 
-                #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="3" cdkAutosizeMaxRows="4" formControlName="description">
+            <div class="input">
+              <ion-label>Fecha y hora de fin</ion-label>
+              <div class="row-input">
+                <div class="mid-input">
+                  <ion-datetime formControlName="endTime" displayFormat="DD MM YYYY" placeholder="Fecha">
+                  </ion-datetime>
+                </div>
+                <div class="mid-input">
+                  <ion-datetime formControlName="endTime" displayFormat="hh:mm a" placeholder="Hora">
+                  </ion-datetime>
+                </div>
+              </div>
+            </div>
+          </div>
+        </mat-expansion-panel>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Datos Adicionales
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <mat-form-field appearance="outline" class="input">
+            <mat-label>Descripcion Completa</mat-label>
+            <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="3"
+              cdkAutosizeMaxRows="4" formControlName="description">
             </textarea>
-            </mat-form-field>
-            <mat-form-field appearance="outline" class="input">
-              <mat-label>Lugar</mat-label>
-              <input matInput formControlName="place">
-            </mat-form-field>
-            <mat-form-field appearance="outline" class="input">
-              <mat-label>Url de reunion</mat-label>
-              <input matInput formControlName="meetUrl">
-            </mat-form-field>
-            <mat-form-field appearance="outline" class="input">
-              <mat-label>Url Maps</mat-label>
-              <input matInput formControlName="mapsUrl">
-            </mat-form-field>
-          </mat-expansion-panel>
-        </mat-accordion>
-        <button class="submit-button">Crear Evento</button>
-      </form>
-    </div>
-  </ion-content>
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="input">
+            <mat-label>Lugar</mat-label>
+            <input matInput formControlName="place">
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="input">
+            <mat-label>Url de reunion</mat-label>
+            <input matInput formControlName="meetUrl">
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="input">
+            <mat-label>Url Maps</mat-label>
+            <input matInput formControlName="mapsUrl">
+          </mat-form-field>
+        </mat-expansion-panel>
+      </mat-accordion>
+      <button class="submit-button">Actualizar Evento</button>
+    </form>
+  </div>
+</ion-content>
