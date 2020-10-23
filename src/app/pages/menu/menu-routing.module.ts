@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { MenuPage } from './menu.page';
+import { AuthGuard } from '../../utils/authguard';
 
 const routes: Routes = [
   {
@@ -15,15 +16,18 @@ const routes: Routes = [
       },
       {
         path: 'profile',
-        loadChildren: () => import('../profile/profile.module').then( m => m.ProfilePageModule)
+        loadChildren: () => import('../profile/profile.module').then( m => m.ProfilePageModule),
+        canActivate: [AuthGuard]
       },
       {
         path: 'events',
-        loadChildren: () => import('../events/events.module').then( m => m.EventsPageModule)
+        loadChildren: () => import('../events/events.module').then( m => m.EventsPageModule),
+        canActivate: [AuthGuard]
       },
       {
         path: 'contacts',
-        loadChildren: () => import('../contacts/contacts.module').then( m => m.ContactsPageModule)
+        loadChildren: () => import('../contacts/contacts.module').then( m => m.ContactsPageModule),
+        canActivate: [AuthGuard]
       },
     ]
   },

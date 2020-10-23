@@ -65,7 +65,6 @@ export class ProfilePage implements OnInit {
     const data = {
       fullname: this.fullname,
       phone: this.phone,
-      email: this.email,
       birth_day: `${this.birthDay.getFullYear()}-${this.completeDate(this.birthDay.getMonth())}-${this.completeDate(this.birthDay.getDay())}`,
       dni: this.dni,
       occupation: this.occupation,
